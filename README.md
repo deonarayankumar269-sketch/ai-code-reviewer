@@ -2,8 +2,7 @@
 
 A full-stack MERN application that lets users submit code snippets and receive automated, AI-powered code reviews — covering security flaws, bugs, performance bottlenecks, and time/space complexity analysis.
 
-**Live Demo:** [Add your Render/Vercel frontend URL here]
-**Backend API:** [Add your Render backend URL here]
+**Live Demo:** [https://ai-code-reviewer-client-fvz3.onrender.com/]
 
 ---
 
