@@ -6,7 +6,7 @@ const env = require('../config/env');
 const cookieOptions = {
   httpOnly: true,
   secure: env.nodeEnv === 'production',
-  sameSite: 'strict',
+  sameSite: env.nodeEnv === 'production' ? 'none' : 'lax',
   path: '/api/auth',
 };
 
