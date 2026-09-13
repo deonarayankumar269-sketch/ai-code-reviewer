@@ -26,9 +26,14 @@ axiosClient.interceptors.response.use(
   async (error) => {
     const originalRequest = error.config;
 
-    const isRefreshCall = originalRequest?.url?.includes('/auth/refresh');
+    // login/register/refresh apne 401/400 khud handle karte h (form pe error dikhta h) -
+    // inpe refresh-retry logic nahi chalni chahiye
+    const isAuthEndpoint =
+      originalRequest?.url?.includes('/auth/refresh') ||
+      originalRequest?.url?.includes('/auth/login') ||
+      originalRequest?.url?.includes('/auth/register');
 
-    if (error.response?.status === 401 && !originalRequest._retry && !isRefreshCall) {
+    if (error.response?.status === 401 && !originalRequest._retry && !isAuthEndpoint) {
       if (isRefreshing) {
         return new Promise((resolve, reject) => {
           queue.push({ resolve, reject });
@@ -53,7 +58,9 @@ axiosClient.interceptors.response.use(
         queue.forEach(({ reject }) => reject(refreshError));
         queue = [];
         setAccessToken(null);
-        window.location.href = '/login';
+        if (window.location.pathname !== '/login') {
+          window.location.href = '/login';
+        }
         return Promise.reject(refreshError);
       } finally {
         isRefreshing = false;
