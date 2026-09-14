@@ -38,7 +38,7 @@ export const themeTokens = {
     buttonText: '#FFFFFF',
     accent: '#B35F2E',
     error: '#C41230',
-    monacoTheme: 'light',
+    monacoTheme: 'vs',
     editorHeaderBg: '#EFEDE8',
     editorSelectBg: '#FFFFFF',
     lineColor: 'rgba(18,38,43,0.1)',
