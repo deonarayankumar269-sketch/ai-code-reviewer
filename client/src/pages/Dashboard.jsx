@@ -35,10 +35,10 @@ export default function Dashboard() {
   return (
     <div
       className="min-h-screen transition-colors"
-      style={{ backgroundColor: tokens.dashboardBg, fontFamily: "'IBM Plex Sans', sans-serif" }}
+      style={{ background: tokens.pageBg, backgroundAttachment: 'fixed', fontFamily: "'IBM Plex Sans', sans-serif" }}
     >
       <header
-        className="relative overflow-hidden px-6 py-4 flex items-center justify-between"
+        className="relative overflow-hidden px-6 py-4 flex items-center justify-between backdrop-blur-sm"
         style={{ borderBottom: `1px solid ${tokens.lineColor}` }}
       >
         <div
@@ -68,8 +68,11 @@ export default function Dashboard() {
         {error && <ErrorBanner message={error} />}
 
         <div
-          className="mt-4 rounded-xl overflow-hidden"
-          style={{ border: `1px solid ${tokens.lineColor}` }}
+          className="mt-4 rounded-2xl overflow-hidden"
+          style={{
+            border: `1px solid ${tokens.cardBorder}`,
+            boxShadow: `0 8px 30px rgba(0,0,0,0.25)`,
+          }}
         >
           <CodeEditor
             code={code}
@@ -83,8 +86,10 @@ export default function Dashboard() {
         <button
           onClick={handleSubmit}
           disabled={isSubmitting || code.trim().length < 10}
-          className="mt-4 w-full py-3 rounded-xl font-medium transition-opacity disabled:opacity-40"
-          style={{ backgroundColor: tokens.buttonBg, color: tokens.buttonText }}
+          className="mt-4 w-full py-3 rounded-2xl font-medium transition-all disabled:opacity-40"
+          style={{ backgroundColor: tokens.buttonBg, color: tokens.buttonText, boxShadow: `0 4px 14px rgba(0,0,0,0.15)` }}
+          onMouseEnter={(e) => { if (!isSubmitting) e.currentTarget.style.filter = 'brightness(1.08)'; }}
+          onMouseLeave={(e) => (e.currentTarget.style.filter = 'none')}
         >
           {isSubmitting ? 'Analyzing...' : 'Review code'}
         </button>
