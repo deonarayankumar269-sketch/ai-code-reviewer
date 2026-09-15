@@ -8,12 +8,12 @@ A full-stack MERN application that lets users submit code snippets and receive a
 
 ## Features
 
-- 🔐 **JWT Authentication** — access + refresh token flow with httpOnly cookies and token rotation-theft detection
-- 🤖 **AI-Powered Code Analysis** — structured feedback on security, bugs, performance, and Big-O complexity
-- 📊 **Review History** — paginated history of all past reviews with severity breakdown
-- 🛡️ **Security Hardened** — rate limiting, NoSQL injection prevention, XSS sanitization, CORS, Helmet
-- ☁️ **Cloud Database** — MongoDB Atlas with compound indexing and aggregation pipelines
-- 🎨 **Modern UI** — React + Tailwind CSS with Monaco code editor
+-  **JWT Authentication** — access + refresh token flow with httpOnly cookies and token rotation-theft detection
+-  **AI-Powered Code Analysis** — structured feedback on security, bugs, performance, and Big-O complexity
+-  **Review History** — paginated history of all past reviews with severity breakdown
+-  **Security Hardened** — rate limiting, NoSQL injection prevention, XSS sanitization, CORS, Helmet
+-  **Cloud Database** — MongoDB Atlas with compound indexing and aggregation pipelines
+-  **Modern UI** — React + Tailwind CSS with Monaco code editor
 
 ---
 
